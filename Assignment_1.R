@@ -45,6 +45,10 @@ for (line in script1) {
   }
 }
 
+#splitting combined sentences
+words <- unlist(str_split(script, "\\s+"))
+sentences <- str_extract_all(script, "\\b\\w+\\b.*?[.!?](?=\\s|$)")
+
 #convert script (chr) to Corpus
 regshow <- Corpus(VectorSource(script))
 class(regshow)
@@ -63,9 +67,6 @@ regshow2 <- tm_map(regshow1, removeNumbers)
 regshow2 <- tm_map(regshow1, removeWords, stopwords("english"))
 regshow2 <- tm_map(regshow1, removePunctuation)
 
-words <- unlist(str_split(script, "\\s+"))
-
-
 
 
 ## 3. analysis - explain analysis in README.md file and save analysis components in a folder
@@ -73,6 +74,13 @@ words <- unlist(str_split(script, "\\s+"))
 # Vocabulary Richness: Calculate type-token ratio (TTR)
 unique_words <- unique(words)
 ttr <- length(unique_words) / length(words)
+
+# Sentence Length: Calculate average sentence length
+sentence_lengths <- sapply(sentences, function(x) length(unlist(str_split(x, "\\s+"))))
+avg_sentence_length <- mean(sentence_lengths)
+
+
+
 
 
 ## 4. results - explain output of analysis
