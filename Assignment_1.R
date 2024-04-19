@@ -80,12 +80,7 @@ ttr <- length(unique_words) / length(words)
 sentence_lengths <- sapply(sentences, function(x) length(unlist(str_split(x, "\\s+"))))
 avg_sentence_length <- mean(sentence_lengths)
 
-## Readability Metrics: Compute Flesch-Kincaid Grade Level
-#words_per_sentence <- sum(sentence_lengths) / length(sentences)
-#syllables_per_word <- sum(sapply(words, function(x) koRpus::tokenize(x))) / length(words)
-#flesch_kincaid_grade_level <- 0.39 * words_per_sentence + 11.8 * syllables_per_word - 15.59
-
-
+# Readability Metrics: Compute Flesch-Kincaid Grade Level
 # refer: https://github.com/trinker/syllable
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load_gh(
@@ -95,22 +90,9 @@ pacman::p_load_gh(
   'trinker/syllable'
 )
 
-# Readability Metrics: Compute Flesch-Kincaid Grade Level
 words_per_sentence <- sum(sentence_lengths) / length(sentences)
 syllables_per_word <- sum(sum_vector(sentences)) / sum(sentence_lengths)
 flesch_kincaid_grade_level <- 0.39 * words_per_sentence + 11.8 * syllables_per_word - 15.59
-
-
-library(qdap)
-
-total_syllables <- sum(sapply(words, function(x) syllable_sum(x)))
-total_words <- sum(sentence_lengths)
-syllables_per_word <- total_syllables / total_words
-flesch_kincaid_grade_level <- 0.39 * words_per_sentence + 11.8 * syllables_per_word - 15.59
-
-
-
-
 
 
 ## 4. results - explain output of analysis
