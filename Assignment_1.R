@@ -45,9 +45,10 @@ for (line in script1) {
   }
 }
 
-#splitting combined sentences
-words <- unlist(str_split(script, "\\s+"))
+#splitting words/sentences
 sentences <- str_extract_all(script, "\\b\\w+\\b.*?[.!?](?=\\s|$)")
+sentences <- unlist(sentences)
+words <- unlist(str_split(sentences, "\\s+"))
 
 #convert script (chr) to Corpus
 regshow <- Corpus(VectorSource(script))
@@ -78,6 +79,35 @@ ttr <- length(unique_words) / length(words)
 # Sentence Length: Calculate average sentence length
 sentence_lengths <- sapply(sentences, function(x) length(unlist(str_split(x, "\\s+"))))
 avg_sentence_length <- mean(sentence_lengths)
+
+## Readability Metrics: Compute Flesch-Kincaid Grade Level
+#words_per_sentence <- sum(sentence_lengths) / length(sentences)
+#syllables_per_word <- sum(sapply(words, function(x) koRpus::tokenize(x))) / length(words)
+#flesch_kincaid_grade_level <- 0.39 * words_per_sentence + 11.8 * syllables_per_word - 15.59
+
+
+# refer: https://github.com/trinker/syllable
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load_gh(
+  'trinker/lexicon',
+  'trinker/textclean',
+  'trinker/textshape',
+  'trinker/syllable'
+)
+
+# Readability Metrics: Compute Flesch-Kincaid Grade Level
+words_per_sentence <- sum(sentence_lengths) / length(sentences)
+syllables_per_word <- sum(sum_vector(sentences)) / sum(sentence_lengths)
+flesch_kincaid_grade_level <- 0.39 * words_per_sentence + 11.8 * syllables_per_word - 15.59
+
+
+library(qdap)
+
+total_syllables <- sum(sapply(words, function(x) syllable_sum(x)))
+total_words <- sum(sentence_lengths)
+syllables_per_word <- total_syllables / total_words
+flesch_kincaid_grade_level <- 0.39 * words_per_sentence + 11.8 * syllables_per_word - 15.59
+
 
 
 
