@@ -51,7 +51,7 @@ sentences <- unlist(sentences)
 words <- unlist(str_split(sentences, "\\s+"))
 
 #convert script (chr) to Corpus
-regshow <- Corpus(VectorSource(script))
+regshow <- Corpus(VectorSource(sentences))
 class(regshow)
 inspect(regshow)
 
@@ -68,6 +68,8 @@ regshow2 <- tm_map(regshow1, removeNumbers)
 regshow2 <- tm_map(regshow1, removeWords, stopwords("english"))
 regshow2 <- tm_map(regshow1, removePunctuation)
 
+regshow1_ch <- sapply(regshow1, as.character)
+regshow2_ch <- sapply(regshow2, as.character)
 
 
 ## 3. analysis - explain analysis in README.md file and save analysis components in a folder
@@ -75,6 +77,10 @@ regshow2 <- tm_map(regshow1, removePunctuation)
 # Vocabulary Richness: Calculate type-token ratio (TTR)
 unique_words <- unique(words)
 ttr <- length(unique_words) / length(words)
+
+
+num_unique_words <- length(unique(tolower(words(corpus))))
+
 
 # Sentence Length: Calculate average sentence length
 sentence_lengths <- sapply(sentences, function(x) length(unlist(str_split(x, "\\s+"))))
@@ -96,6 +102,26 @@ flesch_kincaid_grade_level <- 0.39 * words_per_sentence + 11.8 * syllables_per_w
 
 
 ## 4. results - explain output of analysis
+
+# Sentiment Analysis #
+
+
+
+
+# Wordcloud #
+
+
+
+# Language Complexity #
+# Vocabulary Richness:
+
+
+# Sentence Length:
+
+
+
+# Readability Metrics:
+
 
 
 
