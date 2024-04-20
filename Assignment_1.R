@@ -13,7 +13,7 @@ scrape_transcript <- function(page_url) {
 season1_l <- do.call("c",lapply(pages, scrape_transcript))
 season1 <- season1_l[-1]
 
-writeLines(season1, "season1.txt")
+writeLines(season1, "regularshow_season1_20240418_raw.txt")
 
 
 
@@ -28,7 +28,7 @@ library(ggplot2)
 library(stringr)
 
 #import txt file
-script1 <- readLines("season1.txt")
+script1 <- readLines("regularshow_season1_20240418_raw.txt")
 str(script1)
 
 #combining separated sentences due to subtitle format
