@@ -11,3 +11,6 @@ The aim of this project is to find the dominant sentiments that appear in Regula
 
 
 The analysis is carried out using R.
+
+#### Credits
+This project utilizes the syllable package (https://github.com/trinker/syllable) created by trinker(https://github.com/trinker). We're grateful for their hard work and contribution to the open-source community.
