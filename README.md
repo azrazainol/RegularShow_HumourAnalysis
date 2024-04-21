@@ -5,9 +5,10 @@ This project used Natural Language Processing (NLP) methods on Regular Show Seas
 The aim of this project is to find the dominant sentiments that appear in Regular Show Season 1 (2010), to create a WordCoud to visualise the most used word in the show, and to identify the language complexity in the show. Based on the aims, the analysis includes:
 
 
-    1. Sentiment analysis
+    1. Sentiment and emotion classification analysis
     2. Wordcloud analysis
     3. Vocabulary richness (Type-Token Ratio (TTR)), Readability (Flesch-Kincaid Grade) and Sentence length
+    4. Sarcasm detection
 
 
 The analysis is carried out using R.
