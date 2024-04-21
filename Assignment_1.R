@@ -13,7 +13,7 @@ scrape_transcript <- function(page_url) {
 season1_l <- do.call("c",lapply(pages, scrape_transcript))
 season1 <- season1_l[-1]
 
-writeLines(season1, "regularshow_season1_20240418_raw.txt")
+writeLines(season1, "data/regularshow_season1_20240418_raw.txt")
 
 
 
@@ -30,7 +30,7 @@ library(tidyverse)
 library(tokenizers)
 
 #import txt file
-script1 <- readLines("regularshow_season1_20240418_raw.txt")
+script1 <- readLines("data/regularshow_season1_20240418_raw.txt")
 str(script1)
 
 #combining separated sentences due to subtitle format
