@@ -140,13 +140,13 @@ flesch_kincaid_grade_level <- 0.39 * words_per_sentence + 11.8 * syllables_per_w
 
 # Sentiment Analysis #
 mean(regshow_sentiment)
-hist(regshow_sentiment)
+hist(regshow_sentiment, main = "Sentiment of Regular Show Season 1")
 summary(regshow_sentiment)
 
 # Emotion Classification #
 ggplot(data = regshow_ec_sums2, aes(x = sentiment, y = `rowSums.regshow_ec_df.`, fill = sentiment)) +
   geom_bar(stat = "identity") +
-  labs(title = "Sentiments", y = "Count") +
+  labs(title = "Emotion Classification", y = "Count") +
   theme_minimal()
 
 # Wordcloud #
@@ -157,13 +157,12 @@ wordcloud(words = regshow2_df$word, regshow2_df$freq, min.freq = 5,
 
 # Language Complexity #
 # Vocabulary Richness:
-
+ttr
 
 # Sentence Length:
-
-
+avg_sentence_length
 
 # Readability Metrics:
-
+flesch_kincaid_grade_level
 
 
