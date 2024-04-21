@@ -110,7 +110,13 @@ summary(regshow_sentiment)
 regshow_ec <- get_nrc_sentiment(regshow1_ch)
 regshow_ec_df <- data.frame(t(regshow_ec))
 regshow_ec_sums <- data.frame(rowSums(regshow_ec_df))
-regshow_ec_sums
+regshow_ec_sums <- cbind("sentiment" = rownames(regshow_ec_sums), regshow_ec_sums)
+rownames(regshow_ec_sums) <- NULL
+regshow_ec_sums2 <- regshow_ec_sums[1:8,]
+ggplot(data = regshow_ec_sums2, aes(x = sentiment, y = count, fill = sentiment)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Sentiments", y = "Count") +
+  theme_minimal()
 
 
 # Vocabulary Richness: Calculate type-token ratio (TTR)
@@ -158,12 +164,4 @@ flesch_kincaid_grade_level <- 0.39 * words_per_sentence + 11.8 * syllables_per_w
 # Readability Metrics:
 
 
-
-
-############## what to do:
-# get season 2 scripts or another cartoon network show (adventure time) script
-# do comparison analysis?
-### or
-# get an adult show script
-# do comparison analysis
 
