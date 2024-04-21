@@ -98,12 +98,10 @@ regshow2_df <- data.frame(word = names(regshow2_sort), freq = regshow2_sort)
 wordcloud(words = regshow2_df$word, regshow2_df$freq, min.freq = 5,
           random.order = F, colors = brewer.pal(8, "Dark2"))
 
+
 # Sentiment Analysis
 library(sentimentr)
 regshow_sentiment <- get_sentiment(regshow1_ch, method = "syuzhet")
-mean(regshow_sentiment)
-hist(regshow_sentiment)
-summary(regshow_sentiment)
 
 
 # Emotion Classification
@@ -113,10 +111,6 @@ regshow_ec_sums <- data.frame(rowSums(regshow_ec_df))
 regshow_ec_sums <- cbind("sentiment" = rownames(regshow_ec_sums), regshow_ec_sums)
 rownames(regshow_ec_sums) <- NULL
 regshow_ec_sums2 <- regshow_ec_sums[1:8,]
-ggplot(data = regshow_ec_sums2, aes(x = sentiment, y = count, fill = sentiment)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Sentiments", y = "Count") +
-  theme_minimal()
 
 
 # Vocabulary Richness: Calculate type-token ratio (TTR)
@@ -145,11 +139,19 @@ flesch_kincaid_grade_level <- 0.39 * words_per_sentence + 11.8 * syllables_per_w
 ## 4. results - explain output of analysis
 
 # Sentiment Analysis #
+mean(regshow_sentiment)
+hist(regshow_sentiment)
+summary(regshow_sentiment)
 
-
-
+# Emotion Classification #
+ggplot(data = regshow_ec_sums2, aes(x = sentiment, y = `rowSums.regshow_ec_df.`, fill = sentiment)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Sentiments", y = "Count") +
+  theme_minimal()
 
 # Wordcloud #
+wordcloud(words = regshow2_df$word, regshow2_df$freq, min.freq = 5,
+          random.order = F, colors = brewer.pal(8, "Dark2"))
 
 
 
