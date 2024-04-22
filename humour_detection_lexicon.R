@@ -1,5 +1,7 @@
 humour_csv <- read.csv("data/humour_data.csv")
+# humour_dataset.csv : https://www.kaggle.com/datasets/eswarreddy12/family-guy-dialogues-with-various-lexicon-ratings/data?select=GPT_lex11.csv
 humor_csv2 <- read.csv("data/humor_dataset.csv")
+# humor_dataset.csv : https://github.com/tomasengelthaler/HumorNorms
 
 humor_csv2 <- humor_csv2[,1:2]
 humor_csv2[,2] <- humor_csv2[,2] * 2 #to match the levels in this dataframe with the levels in the 1st dataframe
