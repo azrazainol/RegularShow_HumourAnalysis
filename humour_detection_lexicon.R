@@ -1,80 +1,65 @@
 humour_csv <- read.csv("data/humour_data.csv")
+humor_csv2 <- read.csv("data/humor_dataset.csv")
 
+humor_csv2 <- humor_csv2[,1:2]
+humor_csv2[,2] <- humor_csv2[,2] * 2 #to match the levels in this dataframe with the levels in the 1st dataframe
 
-# Load required libraries
+# find common words between the two data frames
+common_words <- intersect(humour_csv$Word, humor_csv2$word)
+common_words
+
+# justify why we are using the rating from the second dataframe.
+# because the first dataframe was based on the family guy show
+# meanwhile the second dataframe was based on a study where people rated the level of humour they think a word has
+
+# integrate the dataframes
+humour_csv <- humour_csv[!humour_csv$Word %in% common_words, ]
+colnames(humor_csv2) <- c("Word", "Rating")
+humour <- rbind(humour_csv, humor_csv2)
+
+# creating humour lexicon and 
 library(tm)
 
 # Step 1: Create humor lexicon from dataset
-humor_lexicon <- setNames(humour_csv$Rating, humour_csv$Word)
+humour_lexicon <- setNames(humour$Rating, humour$Word)
 
 # Step 2: Tokenize text in corpus object
-# Assuming 'corpus_obj' is your corpus object
 corpus_tokens <- lapply(regshow1$content, function(text) {
   tolower(unlist(strsplit(text, "\\W+")))
 })
 
 # Step 3: Assign humor ratings to tokens
-corpus_humor_ratings <- lapply(corpus_tokens, function(tokens) {
+corpus_humour_ratings <- lapply(corpus_tokens, function(tokens) {
   ratings <- sapply(tokens, function(token) {
-    if (token %in% names(humor_lexicon)) {
-      return(humor_lexicon[token])
+    if (token %in% names(humour_lexicon)) {
+      return(humour_lexicon[token])
     } else {
-      return(NA)  # Token not found in humor lexicon
+      return(NA)
     }
   })
   return(ratings)
 })
 
 # Step 4: Calculate overall humor level for each line
-line_humor_levels <- sapply(corpus_humor_ratings, function(ratings) {
+line_humour_levels <- sapply(corpus_humour_ratings, function(ratings) {
   if (all(is.na(ratings))) {
-    return(NA)  # No humor ratings found for line
+    return(NA)
   } else {
     return(mean(ratings, na.rm = TRUE))
   }
 })
 
-# Display humor levels for each line
-line_humor_levels
+line_humour_levels
 
 # Calculate mean humor level
-mean_humor_level <- mean(line_humor_levels, na.rm = TRUE)
-cat("Mean Humor Level:", mean_humor_level, "\n")
+mean_humour_level <- mean(line_humour_levels, na.rm = TRUE)
+cat("Mean Humour Level:", mean_humour_level, "\n")
 
-# Create histogram for humor levels
-hist(line_humor_levels, main = "Humor Levels in Corpus", xlab = "Humor Level", ylab = "Frequency")
-
-
+# Create histogram for humour levels
+hist(line_humour_levels, main = "Humour Levels in Corpus", xlab = "Humor Level", ylab = "Frequency")
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-# Load sarcasm lexicon or create your own
-humour_lexicon <- c("lol", "haha", "not", "sarcastic", "yeah_right")
-
-# Function to detect sarcasm using lexicon-based approach
-detect_sarcasm <- function(text) {
-  tokens <- tolower(unlist(strsplit(text, "\\W+")))
-  num_sarcastic_words <- sum(tokens %in% sarcasm_lexicon)
-  if (num_sarcastic_words >= 2) {
-    return(TRUE)
-  } else {
-    return(FALSE)
-  }
-}
-
-# Apply sarcasm detection function to testing data
-predictions <- sapply(testing_df$text, detect_sarcasm)
-
-# Calculate accuracy
-accuracy <- mean(predictions == testing_df$labels)
