@@ -15,7 +15,3 @@ The analysis is carried out using R.
 
 #### Credits
 This project utilizes the syllable package (https://github.com/trinker/syllable) created by trinker(https://github.com/trinker). We're grateful for their hard work and contribution to the open-source community.
-
-humor_dataset.csv : https://github.com/tomasengelthaler/HumorNorms , https://link.springer.com/article/10.3758/s13428-017-0930-6
-
-humour_dataset.csv : https://www.kaggle.com/datasets/eswarreddy12/family-guy-dialogues-with-various-lexicon-ratings/data?select=GPT_lex11.csv
