@@ -3,7 +3,6 @@ humour_csv <- read.csv("data/humour_data.csv")
 humor_csv2 <- read.csv("data/humor_dataset.csv")
 # humor_dataset.csv : https://github.com/tomasengelthaler/HumorNorms
 
-
 humor_csv2 <- humor_csv2[,1:2]
 humor_csv2[,2] <- humor_csv2[,2] * 2 #to match the levels in this dataframe with the levels in the 1st dataframe
 
@@ -19,6 +18,7 @@ common_words
 humour_csv <- humour_csv[!humour_csv$Word %in% common_words, ]
 colnames(humor_csv2) <- c("Word", "Rating")
 humour <- rbind(humour_csv, humor_csv2)
+write.csv(humour, "data/humour_combined_20240426.csv")
 
 # creating humour lexicon and 
 library(tm)
