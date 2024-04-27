@@ -50,7 +50,6 @@ for (line in script1) {
 #splitting words/sentences
 sentences <- str_extract_all(script, "\\b\\w+\\b.*?[.!?](?=\\s|$)")
 sentences <- unlist(sentences)
-################## words <- unlist(str_split(sentences, "\\s+"))
 
 #convert script (chr) to Corpus
 regshow <- Corpus(VectorSource(sentences))
@@ -85,6 +84,7 @@ words <- unlist(str_split(sentences, "\\s+"))
 
 #tokenize
 regshow_tokens <- tokenize_words(sentences)
+
 
 
 ## 3. analysis - explain analysis in README.md file and save analysis components in a folder
@@ -136,7 +136,8 @@ syllables_per_word <- sum(sum_vector(sentences)) / sum(sentence_lengths)
 flesch_kincaid_grade_level <- 0.39 * words_per_sentence + 11.8 * syllables_per_word - 15.59
 
 
-## 4. results - explain output of analysis
+
+## 4. results - output of analysis
 
 # Sentiment Analysis #
 mean(regshow_sentiment)
@@ -152,7 +153,6 @@ ggplot(data = regshow_ec_sums2, aes(x = sentiment, y = `rowSums.regshow_ec_df.`,
 # Wordcloud #
 wordcloud(words = regshow2_df$word, regshow2_df$freq, min.freq = 5,
           random.order = F, colors = brewer.pal(8, "Dark2"))
-
 
 
 # Language Complexity #
