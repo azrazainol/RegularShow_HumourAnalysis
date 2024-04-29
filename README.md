@@ -15,7 +15,7 @@ The analysis is carried out using R. The analysis is performed with hopes of fin
 
 # Results and Findings
 
-The output or results of this project can be retreived from the output files folder.
+The output or results of this project can be retreived from [output files](https://github.com/azrazainol/STQD6324_Assignment_01/tree/2c11f6033b3a125ab4547b48ce271222d3ad3920/output%20files).
 
 First is the sentiment and emotion classification analysis.
 
