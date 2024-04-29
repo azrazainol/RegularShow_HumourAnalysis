@@ -15,7 +15,7 @@ The analysis is carried out using R. The analysis is performed with hopes of fin
 
 # Results and Findings
 
-The output or results of this prohect can be retreived from the 'output' folder.
+The output or results of this prohect can be retreived from the 'output_files' folder.
 
 First is the sentiment and emotion classification analysis.
 
