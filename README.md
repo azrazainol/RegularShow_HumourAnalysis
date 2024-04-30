@@ -15,11 +15,19 @@ The aim of this project is to find the dominant sentiments and emotions that app
 
 The analysis is carried out using R. The analysis is performed with hopes of finding the main theme of the entire show and whether the show contains appropriate content for the intended audience as there are a number of online communities that claim the show as inapproriate for kids.
 
+## Methodology
+
+Data is scraped from (https://transcripts.thedealr.net/script.php/regular-show-2010-7Avc/s1) and saved as a txt file (https://github.com/azrazainol/STQD6324_Assignment_01/blob/main/data/regularshow_season1_20240418_raw.txt). The data is cleaned before performing analysis.
+
 ## Results and Findings
 
 The output or results of this project can be retreived from [output files](https://github.com/azrazainol/STQD6324_Assignment_01/tree/2c11f6033b3a125ab4547b48ce271222d3ad3920/output%20files).
 
 First is the sentiment and emotion classification analysis. ![Image](https://github.com/azrazainol/STQD6324_Assignment_01/blob/7ae980ca3f4ecb006b2348b8f4fd065621de759f/output%20files/sentiment_regularshow_20240426.png)
+
+
+
+
 
 #### Credits
 This project utilizes the syllable package (https://github.com/trinker/syllable) created by trinker(https://github.com/trinker). We're grateful for their hard work and contribution to the open-source community.
