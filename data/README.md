@@ -5,8 +5,8 @@
 ## Humour Dataset from Family Guy Show
 [humour1.csv](https://github.com/azrazainol/STQD6324_Assignment_01/blob/85feb91959e239b91a75735280973fcf102fdccf/data/humour1.csv) source: https://www.kaggle.com/datasets/eswarreddy12/family-guy-dialogues-with-various-lexicon-ratings/data?select=GPT_lex11.csv
 This file contains the list of humour words for the Family Guy Show.
-Word      : word
-Rating    : humour rating of the word
+- Word      : word
+- Rating    : humour rating of the word
 
 ## Humour Dataset from Humor Norms
 [humor2.csv](https://github.com/azrazainol/STQD6324_Assignment_01/blob/b6744ea4f807cc9f00b9bf7c615f87ad66d1c8ba/data/humour2.csv) source: https://github.com/tomasengelthaler/HumorNorms , https://link.springer.com/article/10.3758/s13428-017-0930-6
