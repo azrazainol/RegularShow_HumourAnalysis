@@ -1,5 +1,7 @@
 # STQD6324_Assignment_01
 
+## Introduction
+
 This project used Natural Language Processing (NLP) methods on Regular Show Season 1 (2010) scripts. The Regular Show is an animated show starring two friends, Mordecai (a blue jay) and Rigby (a raccoon). This show was played on Cartoon Network, a TV channel known for airing shows for kids.
 
 The aim of this project is to find the dominant sentiments and emotions that appear in Regular Show Season 1 (2010), to create a word cloud to visualise the most used word in the show, to identify the language complexity in the show, and to find the humour rating of the show. Based on the aims, the analysis includes:
@@ -13,7 +15,7 @@ The aim of this project is to find the dominant sentiments and emotions that app
 
 The analysis is carried out using R. The analysis is performed with hopes of finding the main theme of the entire show and whether the show contains appropriate content for the intended audience as there are a number of online communities that claim the show as inapproriate for kids.
 
-# Results and Findings
+## Results and Findings
 
 The output or results of this project can be retreived from [output files](https://github.com/azrazainol/STQD6324_Assignment_01/tree/2c11f6033b3a125ab4547b48ce271222d3ad3920/output%20files).
 
