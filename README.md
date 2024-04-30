@@ -19,7 +19,7 @@ The analysis is carried out using R. The analysis is performed with hopes of fin
 
 The output or results of this project can be retreived from [output files](https://github.com/azrazainol/STQD6324_Assignment_01/tree/2c11f6033b3a125ab4547b48ce271222d3ad3920/output%20files).
 
-First is the sentiment and emotion classification analysis.
+First is the sentiment and emotion classification analysis. ![Image](https://github.com/azrazainol/STQD6324_Assignment_01/blob/7ae980ca3f4ecb006b2348b8f4fd065621de759f/output%20files/sentiment_regularshow_20240426.png)
 
 #### Credits
 This project utilizes the syllable package (https://github.com/trinker/syllable) created by trinker(https://github.com/trinker). We're grateful for their hard work and contribution to the open-source community.
